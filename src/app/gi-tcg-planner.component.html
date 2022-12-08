@@ -24,7 +24,7 @@
   <div class="dice-group">
     <label class="dice--selectable" *ngFor="let die of dice; let i = index">
       <input type="checkbox" [value]="die.element" (click)="dieSelected($event, i)">
-      <img [src]="'/assets/images/' + (die.element | lowercase) + '.png'" [alt]="die.element | lowercase">
+      <img [src]="'assets/images/' + (die.element | lowercase) + '.png'" [alt]="die.element | lowercase">
     </label>
   </div>
 

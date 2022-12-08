@@ -62,12 +62,10 @@ export class GiTcgPlannerComponent {
         }
       }
     });
-    console.log(diceArray);
     this.dice = diceArray;
   }
 
   getDiceCountByElement(element: DiceElement): number {
-    console.log(element);
     return this.diceMap.get(element.toLocaleUpperCase() as DiceElement)!;
   }
 
@@ -77,9 +75,7 @@ export class GiTcgPlannerComponent {
     } else {
       this.selected++;
     }
-    console.log(this.selected);
     this.dice[i].selected = !this.dice[i].selected;
-    console.log(this.dice);
   }
 
   removeSelected(endTurn: boolean) {
@@ -112,12 +108,9 @@ export class GiTcgPlannerComponent {
           }
         });
         element = element.toLocaleUpperCase();
-        console.log(element as DiceElement);
-        console.log(this.diceMap.get(element as DiceElement));
         // @ts-ignore
         this.diceMap.set(element as DiceElement, this.diceMap.get(element as DiceElement) + this.selected);
         this.cards -= this.selected;
-        console.log(this.diceMap);
         this.textField += "Converted " + this.selected + " dice into " + element + " dice.\n";
         this.selected = 0;
         this.getDiceForDisplay();
