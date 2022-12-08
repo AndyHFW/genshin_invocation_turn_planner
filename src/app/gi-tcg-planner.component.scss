@@ -1,0 +1,129 @@
+hr {
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+.div__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-box {
+  border: 1px solid;
+  padding: 10px;
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+
+.counter-box__top {
+  display: flex;
+  flex-direction: row;
+}
+
+.counter-box__dice_cards {
+  flex: 50%;
+  padding: 4px 0 4px 0;
+}
+
+$rowHeight: 22px;
+.counter-box--elemental_dice-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: calc(4 * #{$rowHeight});
+}
+
+.counter-box--elemental_dice {
+  height: $rowHeight;
+  flex-grow: 1;
+  display: inline-block;
+}
+
+$buttonHeight: 50px;
+.dice-button-group {
+  padding: 10px;
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-between;
+  max-height: calc(2 * #{$buttonHeight});
+  width: 80%;
+  list-style-type: none;
+}
+
+.li__dice-button {
+  height: $buttonHeight;
+  width: 25%;
+  flex-grow: 1;
+}
+
+.button__dice {
+  width: 90%;
+  height: 80%;
+}
+
+.button__remove-all {
+  width: 60%;
+  height: 40px;
+  margin: 10px;
+}
+
+.dice-group {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.dice--selectable {
+  padding: 10px;
+}
+
+.action-groups {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.action-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.action-group--convert {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button__action {
+  width: 40%;
+  height: 40px;
+  margin: 10px;
+}
+
+.input--convert {
+  width: 20%;
+  height: 26px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.button--convert {
+  width: 20%;
+  height: 40px;
+  margin: 10px;
+}
+
+.log {
+  height: 200px;
+  width: 80%;
+  font-size: 20px;
+  margin: 10px;
+}

@@ -1,0 +1,63 @@
+<h1>Genius Invocation Turn Planner</h1>
+<div class="div__body">
+  <div class="counter-box">
+    <div class="counter-box__top">
+      <span class="counter-box__dice_cards" [innerHTML]="'Total Dice: ' + totalDice"></span>
+      <span class="counter-box__dice_cards" [innerHTML]="'Cards: ' + cards"></span>
+    </div>
+    <div class="counter-box--elemental_dice-group">
+      <span class="counter-box--elemental_dice"
+            *ngFor="let element of DiceElement | keyvalue: keepOriginalOrder"
+            [innerHTML]="element.value + ': ' + getDiceCountByElement(element.value)">
+      </span>
+    </div>
+  </div>
+  <div class="dice-button-group">
+    <li class="li__dice-button" *ngFor="let element of DiceElement | keyvalue: keepOriginalOrder">
+      <button class="button__dice" (click)="addDie(element.key)">add {{ element.value }}</button>
+    </li>
+  </div>
+  <button class="button__remove-all" (click)="removeAll()">Remove all dice</button>
+
+  <hr>
+
+  <div class="dice-group">
+    <label class="dice--selectable" *ngFor="let die of dice; let i = index">
+      <input type="checkbox" [value]="die.element" (click)="dieSelected($event, i)">
+      <img [src]="'/assets/images/' + (die.element | lowercase) + '.png'" [alt]="die.element | lowercase">
+    </label>
+  </div>
+
+  <hr>
+
+  <div class="action-groups">
+    <div class="action-group">
+      <button class="button__action" (click)="removeSelected(true)">Attack (ends turn)</button>
+      <button class="button__action" (click)="removeSelected(false)">Remove selected dice</button>
+    </div>
+    <div class="action-group">
+      <button class="button__action" (click)="swapChar(true)">Swap char (ends turn)</button>
+      <button class="button__action" (click)="swapChar(false)">Free char swap</button>
+    </div>
+    <div class="action-group--convert">
+      <input class="input--convert" id="convertElement" type="text" value="omni" [(ngModel)]="convertElement">
+      <button class="button--convert" (click)="convert(convertElement)">Convert/tuning (consumes 1 card for each die)</button>
+    </div>
+    <div class="action-group--convert">
+      <input class="input--convert" id="discardCards" type="number" value="0" [(ngModel)]="cardInput">
+      <button class="button--convert" (click)="alterHand(cardInput, true)">Draw cards</button>
+      <button class="button--convert" (click)="alterHand(cardInput, false)">Remove cards from hand</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <textarea class="log"
+            cols="80"
+            rows="20"
+            [(ngModel)]="textField"
+            #textarea
+            [scrollTop]="textarea.scrollHeight"
+            readonly>
+  </textarea>
+</div>
